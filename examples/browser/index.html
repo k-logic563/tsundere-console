@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Browser playground for testing tsundere-console"
+    />
+    <title>tsundere-console Browser Playground</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Your console is now a tsundere.</p>
+        <h1>tsundere-console</h1>
+        <p class="subtitle">Browser Playground</p>
+        <p class="instructions">
+          Open <strong>DevTools → Console</strong>, then click the buttons
+          below. Every action uses the built ESM package from
+          <code>dist/index.js</code>.
+        </p>
+      </header>
+
+      <section class="config-panel" aria-labelledby="config-heading">
+        <div>
+          <p class="section-label">Live state</p>
+          <h2 id="config-heading">Current Config</h2>
+        </div>
+        <dl class="config-values" aria-live="polite">
+          <div>
+            <dt>Level</dt>
+            <dd id="current-level">normal</dd>
+          </div>
+          <div>
+            <dt>Language</dt>
+            <dd id="current-language">ja</dd>
+          </div>
+          <div>
+            <dt>Randomness</dt>
+            <dd id="current-randomness">true</dd>
+          </div>
+        </dl>
+        <div class="button-row config-actions">
+          <button type="button" data-action="reset-config">Reset Config</button>
+          <button type="button" class="danger" data-action="clear">
+            Clear Console
+          </button>
+        </div>
+      </section>
+
+      <div class="playground-grid">
+        <section class="card" aria-labelledby="basic-heading">
+          <p class="section-label">Console wrappers</p>
+          <h2 id="basic-heading">Basic</h2>
+          <div class="button-grid">
+            <button type="button" data-action="log">Log</button>
+            <button type="button" data-action="info">Info</button>
+            <button type="button" data-action="success">Success</button>
+            <button type="button" data-action="warn">Warn</button>
+            <button type="button" data-action="error">Error</button>
+            <button type="button" data-action="debug">Debug</button>
+          </div>
+        </section>
+
+        <section class="card card-wide" aria-labelledby="status-heading">
+          <p class="section-label">Code-aware reactions</p>
+          <h2 id="status-heading">HTTP Status</h2>
+          <div class="button-grid status-grid">
+            <button type="button" data-status="200">200</button>
+            <button type="button" data-status="201">201</button>
+            <button type="button" data-status="301">301</button>
+            <button type="button" data-status="400">400</button>
+            <button type="button" data-status="401">401</button>
+            <button type="button" data-status="403">403</button>
+            <button type="button" data-status="404">404</button>
+            <button type="button" data-status="418">418</button>
+            <button type="button" data-status="429">429</button>
+            <button type="button" data-status="500">500</button>
+            <button type="button" data-status="502">502</button>
+            <button type="button" data-status="503">503</button>
+            <button type="button" data-status="504">504</button>
+            <button type="button" data-status="599">599</button>
+            <button type="button" class="accent" data-action="status-context">
+              404 + Context
+            </button>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="level-heading">
+          <p class="section-label">Intensity</p>
+          <h2 id="level-heading">Tsundere Level</h2>
+          <div class="button-grid">
+            <button type="button" data-level="mild">Mild</button>
+            <button type="button" data-level="normal">Normal</button>
+            <button type="button" data-level="extreme">Extreme</button>
+          </div>
+          <p class="current-selection">
+            Current level: <strong data-config-value="level">normal</strong>
+          </p>
+        </section>
+
+        <section class="card" aria-labelledby="language-heading">
+          <p class="section-label">Message locale</p>
+          <h2 id="language-heading">Language</h2>
+          <div class="button-grid">
+            <button type="button" data-language="ja">Japanese</button>
+            <button type="button" data-language="en">English</button>
+          </div>
+          <p class="current-selection">
+            Current language: <strong data-config-value="language">ja</strong>
+          </p>
+        </section>
+
+        <section class="card" aria-labelledby="randomness-heading">
+          <p class="section-label">Message selection</p>
+          <h2 id="randomness-heading">Randomness</h2>
+          <div class="button-grid">
+            <button type="button" data-randomness="true">Randomness ON</button>
+            <button type="button" data-randomness="false">
+              Randomness OFF
+            </button>
+            <button type="button" class="accent span-full" data-action="repeat">
+              Run same message 3 times
+            </button>
+          </div>
+          <p class="current-selection">
+            Current randomness:
+            <strong data-config-value="randomness">true</strong>
+          </p>
+        </section>
+
+        <section class="card" aria-labelledby="objects-heading">
+          <p class="section-label">Native rendering</p>
+          <h2 id="objects-heading">Object / Table</h2>
+          <div class="button-grid">
+            <button type="button" data-action="dir">Inspect Object</button>
+            <button type="button" data-action="table">Render Table</button>
+          </div>
+        </section>
+
+        <section class="card card-wide" aria-labelledby="special-heading">
+          <p class="section-label">Diagnostics and extras</p>
+          <h2 id="special-heading">Special APIs</h2>
+          <div class="button-grid special-grid">
+            <button type="button" data-action="praise">Praise</button>
+            <button type="button" data-action="complain">Complain</button>
+            <button type="button" data-action="panic">Panic</button>
+            <button type="button" data-action="assert">Assert</button>
+            <button type="button" data-action="trace">Trace</button>
+            <button type="button" data-action="count">Count ×3</button>
+            <button type="button" data-action="count-reset">Reset Count</button>
+            <button type="button" data-action="timer">Timer</button>
+            <button type="button" data-action="group">Group</button>
+          </div>
+        </section>
+      </div>
+
+      <p id="last-action" class="last-action" aria-live="polite">
+        Playground ready. Waiting for an action.
+      </p>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
